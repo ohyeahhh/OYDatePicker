@@ -1,7 +1,5 @@
 //
-//  OYBirthdayPicker.h
-//  lunarCompute
-//
+//  OYDatePicker.h
 //  Created by ohyeah on 17/8/8.
 //  Copyright © 2017年 ohyeah. All rights reserved.
 //
