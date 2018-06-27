@@ -30,11 +30,17 @@ typedef NS_ENUM(NSInteger,OYEndDateMode){
 @property (assign,nonatomic)NSInteger year;
 @property (assign,nonatomic)NSInteger month;
 @property (assign,nonatomic)NSInteger day;
+//年月日对应的中文描述
+@property (assign,nonatomic)NSString *yearString;
+@property (assign,nonatomic)NSString *monthString;
+@property (assign,nonatomic)NSString *dayString;
 
 
 //类型
 @property (assign,nonatomic)BOOL isLunar;
 @property (assign,nonatomic)BOOL isYearIgnored;
+//返回“公历”或“农历”
+@property (assign,nonatomic)NSString *isLunarString;
 
 //日历的截止日期
 @property (assign,nonatomic)OYEndDateMode endDateMode;

@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger,CalendarType){
 @interface OYBirthdayPicker ()
 
 //控件
+@property (strong,nonatomic)UIView *backgroundView;
 @property (strong,nonatomic)UIView *containerView;
 @property (strong,nonatomic)UIView *cancelGestureRecognizerView;
 @property (strong,nonatomic)UIPickerView *innerPickView;
@@ -93,10 +94,19 @@ typedef NS_ENUM(NSInteger,CalendarType){
 
 -(void)initViews{
     
-     //半透明背景
+    self.backgroundColor = [UIColor clearColor];
     self.frame = CGRectMake(0, 0, kScreenW, kScreenH);
-    self.backgroundColor = [UIColor grayColor];
-    self.alpha = 0;
+    self.userInteractionEnabled = NO;
+    
+    //半透明背景
+    UIView *backgroundView =[[UIView alloc] init];
+    backgroundView.backgroundColor = [UIColor clearColor];
+    [self addSubview:backgroundView];
+    [backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
+    self.backgroundView = backgroundView;
+    
     
     //响应取消动作的view
     self.cancelGestureRecognizerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenW, kScreenH-HEIGHT)];
@@ -238,10 +248,11 @@ typedef NS_ENUM(NSInteger,CalendarType){
     if (_isShown) {
         //下滑消失
         _cancelGestureRecognizerView.userInteractionEnabled = NO;
+        self.userInteractionEnabled = NO;
         _isShown = NO;
         [UIView animateWithDuration:0.4 animations:^{
             self.containerView.transform = CGAffineTransformTranslate(self.transform,0,HEIGHT);
-            self.alpha = 0;
+            self.backgroundView.backgroundColor = [UIColor clearColor];
         } completion:^(BOOL finished) {
             if (_completionBlock != nil) {
                 [button isEqual:self.confirmButton]?_completionBlock(YES):_completionBlock(NO);
@@ -256,10 +267,11 @@ typedef NS_ENUM(NSInteger,CalendarType){
         [self sychronizePickerStatusWithAnimation:YES];
         [UIView animateWithDuration:0.4 animations:^{
             self.containerView.transform = CGAffineTransformTranslate(self.transform,0, -1*HEIGHT);
-            self.alpha = 0.8;
+            self.backgroundView.backgroundColor = [[UIColor grayColor] colorWithAlphaComponent:0.8];
         } completion:^(BOOL finished) {
             _cancelGestureRecognizerView.userInteractionEnabled = YES;
             self.userInteractionEnabled = YES;
+           
         }];
     }
 }
@@ -282,6 +294,22 @@ typedef NS_ENUM(NSInteger,CalendarType){
     }else{
         return 2099;
     }
+}
+
+-(NSString *)yearString{
+    return _isLunar?[self.data lunarYearStringOfYear:_year]:[_years[_year - OYFirstYear] stringByAppendingString:@"年"];
+}
+
+-(NSString *)monthString{
+    return _isLunar? _monthLunarStringArray[_month-1]:[NSString stringWithFormat:@"%ld月",(long)_month];
+}
+
+-(NSString *)dayString{
+    return _isLunar? _dayLunarStringArray[_day-1]:[NSString stringWithFormat:@"%ld日",(long)_day];
+}
+
+-(NSString *)isLunarString{
+    return _isLunar?@"农历":@"公历";
 }
 
 #pragma mark - setters

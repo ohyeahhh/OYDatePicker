@@ -93,6 +93,24 @@ OYDate OYDateMake(int year,int month,int day,bool isLunar){
 
 }
 
+-(NSString *)lunarYearStringOfYear:(NSInteger)year{
+  NSArray *yearStringMap = @[@"〇",@"一",@"二",@"三",@"四",@"五",@"六",@"七",@"八",@"九"];
+    NSString *string = @"";
+    NSString *yearNumberString = [NSString stringWithFormat:@"%ld",(long)year];
+    NSUInteger length = [yearNumberString length];
+    while((length = [yearNumberString length])){
+        NSUInteger number = [[yearNumberString substringFromIndex:length-1] integerValue];
+        if (number < yearStringMap.count) {
+            NSString *numberString = yearStringMap[number];
+            string = [numberString stringByAppendingString:string];
+        }
+        yearNumberString = [yearNumberString substringToIndex:length-1];
+    };
+    if ([string length]) {
+        string = [NSString stringWithFormat:@"%@年",string];
+    }
+    return string;
+}
 
 -(NSArray *)lunarMonthStringsOfYear:(NSInteger)year{
     
@@ -210,7 +228,7 @@ OYDate OYDateMake(int year,int month,int day,bool isLunar){
 /**
  *  将公历日期转换成农历（阴阳历）日期
  *
- *  @param normalDate 公历日期
+ *  @param date 公历日期
  *  @return 农历日期
  *  注意：month的值表示当年的第几个月份，可能和字面上的月份不同 也就是2017年闰六月初五对应OYDateMake(2017,7,5)
  */
