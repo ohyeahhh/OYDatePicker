@@ -10,6 +10,9 @@
 #import "Masonry.h"
 #import "OYCalendarData.h"
 
+#define kScreenW [UIScreen mainScreen].bounds.size.width
+#define kScreenH [UIScreen mainScreen].bounds.size.height
+
 typedef NS_ENUM(NSInteger,CalendarType){
     CalendarTypeLunar = 01,
     CalendarTypeNormal = 00,

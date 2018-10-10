@@ -6,14 +6,18 @@
 
 #import <UIKit/UIKit.h>
 
-#define kScreenW [UIScreen mainScreen].bounds.size.width
-#define kScreenH [UIScreen mainScreen].bounds.size.height
+
 
 
 typedef void(^CompletionBlock)(BOOL result);
 
 
-//日历的截止日期
+/**
+  picker 的截止日期类型
+
+ - OYEndDateModeToday: 可选日期为1901年到“今天”
+ - OYEndDateModeDefault: 可选日期为1901年到2099年最后一天
+ */
 typedef NS_ENUM(NSInteger,OYEndDateMode){
     OYEndDateModeToday = 1,//可选日期为1901年到“今天”
     OYEndDateModeDefault = 2//可选日期为1901年到2099年最后一天
@@ -23,28 +27,72 @@ typedef NS_ENUM(NSInteger,OYEndDateMode){
 
 @interface OYBirthdayPicker : UIView <UIPickerViewDataSource,UIPickerViewDelegate>
 
-//点击确定、取消、半透明背景后的回调方法
+
+/**
+ 点击确定、取消、半透明背景后的回调方法
+ 当用户点击确定时，completionBlock将会获得参数 YES，此时可以通过以下的 year、month、day 等属性获得当前选中日期；其他情况下，completionBlock都会获得参数 NO。
+ */
 @property (copy,nonatomic)CompletionBlock completionBlock;
 
-//picker 的年月日
+
+//以下方法用于获取和设置 picker 的选中日期，以及 picker 的状态
+
+/**
+ 通过该属性来读取、更新 picker 的选中年份
+ */
 @property (assign,nonatomic)NSInteger year;
+/**
+ 通过该属性来读取、更新 picker 的选中月份
+ */
 @property (assign,nonatomic)NSInteger month;
+/**
+ 通过该属性来读取、更新 picker 的选中日
+ */
 @property (assign,nonatomic)NSInteger day;
-//年月日对应的中文描述
-@property (assign,nonatomic)NSString *yearString;
-@property (assign,nonatomic)NSString *monthString;
-@property (assign,nonatomic)NSString *dayString;
-
-
-//类型
+/**
+ 通过该属性来读取、更新 picker 的日期类型
+ 为 YES 时表示显示农历日期，为 NO 时表示显示公历日期
+ */
 @property (assign,nonatomic)BOOL isLunar;
+/**
+ 通过该属性来读取、更新 picker 的日期是否忽略年份
+ 为 YES 时表示忽略年份，picker 中只显示月、日；为 NO 时表示不忽略年份，picker 中只显示年、月、日
+ */
 @property (assign,nonatomic)BOOL isYearIgnored;
-//返回“公历”或“农历”
-@property (assign,nonatomic)NSString *isLunarString;
-
-//日历的截止日期
+/**
+ 通过该属性来读取、更新 picker 的截止日期类型
+ 见枚举值OYEndDateMode
+ */
 @property (assign,nonatomic)OYEndDateMode endDateMode;
 
+
+
+//以下属性用于提供与picker当前状态相关的中文描述
+
+/**
+ 当前选中年份的中文描述
+ */
+@property (assign,nonatomic,readonly)NSString *yearString;
+/**
+ 当前选中月份的中文描述
+ */
+@property (assign,nonatomic,readonly)NSString *monthString;
+/**
+ 当前选中日的中文描述
+ */
+@property (assign,nonatomic,readonly)NSString *dayString;
+/**
+ 返回当前日期类型的中文描述,“公历”或“农历”
+ */
+@property (assign,nonatomic,readonly)NSString *isLunarString;
+
+
+
+
+/**
+ 调用该方法使picker弹出
+ 没有隐藏 picker 的方法，picker 会在点击取消和半透明背景时自动消失
+ */
 -(void)show;
 
 @end

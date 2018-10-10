@@ -10,7 +10,6 @@
 #import "Masonry.h"
 
 #import "OYCalendarData.h"
-
 #import "OYBirthdayPicker.h"
 
 @interface ViewController ()
@@ -69,7 +68,7 @@
     [selectedDateLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(function1);
         make.top.equalTo(showButton.mas_bottom).mas_offset(20);
-        make.width.mas_equalTo(kScreenW-28);
+        make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width-28);
         make.height.mas_equalTo(30);
     }];
     self.selectedDateLabel = selectedDateLabel;
