@@ -147,6 +147,7 @@
 				TargetAttributes = {
 					822D33A51F458AE100169FA2 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = AA7U7DZWDQ;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -363,6 +364,7 @@
 			baseConfigurationReference = 3A694DC2A7F676604B4CF267 /* Pods-OYDatePicker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AA7U7DZWDQ;
 				INFOPLIST_FILE = OYDatePicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ohyeah.OYDatePicker;
@@ -375,6 +377,7 @@
 			baseConfigurationReference = 503DF91F260A4425FAC69B3F /* Pods-OYDatePicker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = AA7U7DZWDQ;
 				INFOPLIST_FILE = OYDatePicker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ohyeah.OYDatePicker;
