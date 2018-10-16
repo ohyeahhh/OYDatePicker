@@ -35,9 +35,18 @@ OYDate OYDateMake(int year,int month,int day,bool isLunar);
  * 返回农历日历上的月份或日期的字符串数组
  */
 
-//返回指定年份的  农历月份字符串，如@[@"正月",@"二月",@"三月",@"闰三月",@"四月",@"五月",@"六月",@"七月",@"八月",@"九月",@"十月",@"冬月",@"腊月"]
+
+
+//返回指定农历年份的字符串形式，如：二〇〇二年
+-(NSString *)lunarYearStringOfYear:(NSInteger)year;
+
+
+
+/**
+ 返回指定年份的  农历月份字符串，如@[@"正月",@"二月",@"三月",@"闰三月",@"四月",@"五月",@"六月",@"七月",@"八月",@"九月",@"十月",@"冬月",@"腊月"]
+ */
 -(NSArray *)lunarMonthStringsOfYear:(NSInteger)year;
-/*
+/**
  * 返回指定月份的 日期字符串，如
  * @[@"初一",@"初二",@"初三",@"初四",@"初五",@"初六",
  *   @"初七",@"初八",@"初九",@"初十",@"十一",@"十二",
@@ -51,9 +60,13 @@ OYDate OYDateMake(int year,int month,int day,bool isLunar);
  */
 -(NSArray *)lunarDayStringsOfMonth:(NSInteger)month inYear:(NSInteger)year;
 
-//返回与年份、月份无关的日字符串 即初一到三十
-+(NSArray *)standaloneDayStringsOfLunarMonth;
-//返回与年份无关的月份字符串 即正月到腊月
+/**
+ 返回与年份、月份无关的日字符串 即初一到三十
+*/
+ +(NSArray *)standaloneDayStringsOfLunarMonth;
+/**
+ 返回与年份无关的月份字符串 即正月到腊月
+ */
 +(NSArray *)standaloneMonthStringsOfLunarYear;
 
 
