@@ -26,8 +26,8 @@ Pod::Spec.new do |s|
   s.author           = { 'ohyeahhh' => 'ohyeahmisoh@gmail.com' }
   s.source           = { :git => 'https://github.com/ohyeahhh/OYDatePicker.git', :tag => s.version.to_s }
   s.ios.deployment_target = '9.0'
-  s.source_files = ['OYDatePicker/**/*.{m,h}']
-  s.public_header_files = ['OYDatePicker/*.h']
+  s.source_files = ['OYDatePicker/OYBirthdayPicker.{m,h}','OYDatePicker/OYCalendarData.{m,h}','OYDatePicker/ViewController.{m,h}']
+  s.public_header_files = ['OYDatePicker/OYBirthdayPicker.h','OYDatePicker/OYCalendarData.h','OYDatePicker/ViewController.h']
   s.dependency  'Masonry'
   s.requires_arc = true
  
