@@ -124,8 +124,6 @@
 				822D33A21F458AE100169FA2 /* Sources */,
 				822D33A31F458AE100169FA2 /* Frameworks */,
 				822D33A41F458AE100169FA2 /* Resources */,
-				B5E4BB385465844CA87996E6 /* [CP] Embed Pods Frameworks */,
-				16BD10230CBC388CDEB2F543 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,36 +182,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		16BD10230CBC388CDEB2F543 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OYDatePicker/Pods-OYDatePicker-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B5E4BB385465844CA87996E6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OYDatePicker/Pods-OYDatePicker-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DA2344621E7734A60B995504 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
