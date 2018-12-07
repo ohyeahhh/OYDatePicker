@@ -83,7 +83,7 @@
     }];
     
     UIButton *setDateButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [setDateButton setTitle:@"点击切换选中日期至:农历二〇一七年闰六月十八" forState:UIControlStateNormal];
+    [setDateButton setTitle:@"点击切换选中日期至:农历二〇一七年闰六月十九" forState:UIControlStateNormal];
     [setDateButton addTarget:self action:@selector(setDate) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:setDateButton];
     [setDateButton mas_makeConstraints:^(MASConstraintMaker *make) {
